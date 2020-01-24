@@ -110,7 +110,7 @@ export default {
                 first_name: self.formFirstName,
                 last_name: self.formLastName,
                 complete_progress: 5,
-                classe: 2
+                classe: 1
             }).then(function(data){
               self.formSuccessMessage = true;
               self.formErrorMessageGeneric = false;

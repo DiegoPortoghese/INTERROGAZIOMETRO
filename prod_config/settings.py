@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'corsheaders',
     # app custom
     'chatmessages',
-    'rooms',
+    'classi',
     'accounts',
     # autenticazione
     'rest_framework',
@@ -100,12 +100,11 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_flybnb',
-        'USER': 'flybnb_django_user',
-        'PASSWORD': 'H52$p93#QM',
+        'NAME': 'dbname',
+        'USER': 'username',
+        'PASSWORD': 'password',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -129,7 +128,7 @@ ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 
 ACCOUNT_EMAIL_REQUIRED = True
 
-ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION = "none"
 
 ACCOUNT_CONFIRM_EMAIL_ON_GET = False
 
@@ -137,7 +136,7 @@ OLD_PASSWORD_FIELD_ENABLED = True
 
 REST_AUTH_SERIALIZERS = {
     "USER_DETAILS_SERIALIZER": "accounts.serializers.CustomUserDetailsSerializer",
-    "PASSWORD_RESET_SERIALIZER": "accounts.serializers.CustomPasswordResetSerializer"
+    "PASSWORD_RESET_SERIALIZER": "accounts.serializers.CustomPasswordResetSerializer",
 }
 
 REST_AUTH_REGISTER_SERIALIZERS = {
@@ -149,16 +148,7 @@ ACCOUNT_ADAPTER = "accounts.adapters.CustomAccountAdapter"
 # Email configurations
 # https://docs.djangoproject.com/en/2.2/topics/email/#topic-email-backends
 
-#EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-DEFAULT_FROM_EMAIL = 'info@flybnb.it'
-
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp-relay.sendinblue.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'portoghese.diego@gmail.com'
-EMAIL_HOST_PASSWORD = 'Xk3aZLA8PrIxHDFh'
-
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -177,7 +167,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 MEDIA_URL = '/media/' 
 
@@ -185,7 +174,7 @@ MEDIA_ROOT = os.path.join(OUTER_DIR, 'media')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        #'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     ),
@@ -198,9 +187,9 @@ REST_FRAMEWORK = {
     #)
 }
 
-FRONTEND_NAME = "Flybnb"
+FRONTEND_NAME = "interrogaziometro"
 
-FRONTEND_DOMAIN = "flybnb.it"
+FRONTEND_DOMAIN = "interrogaziometro.it"
 
 FRONTEND_PROTOCOL = "https"
 

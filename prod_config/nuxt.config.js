@@ -1,10 +1,12 @@
+import webpack from 'webpack'
+
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    title: 'flybnb',
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -25,12 +27,22 @@ export default {
   css: [
     '@fortawesome/fontawesome-free/css/all.css',
     '@/assets/css/main.css',
+    //'@/assets/css/custom_fullcalendar.css',
+    '@fullcalendar/core/main.css',
+    '@fullcalendar/daygrid/main.css',
+  ],
+  
+  script: [
+    { src: 'https://code.jquery.com/jquery-3.4.1.min.js' }
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~/plugins/full-calendar', ssr: false },
+    { src: '~/plugins/jquery', ssr: false },
   ],
+
   /*
   ** Nuxt.js dev-modules
   */
@@ -48,7 +60,7 @@ export default {
     'cookie-universal-nuxt',
   ],
   axios: {
-    baseURL: 'https://flybnb.it:8000/',
+    baseURL: 'http://interrogaziometro.it:8000/',
   },
   auth: {
     redirect: {
@@ -68,17 +80,27 @@ export default {
       }
     }
   },
-  plugins: [{ src: "~/plugins/google-maps", ssr: true }],
   /*
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
+    plugins: [
+        new webpack.ProvidePlugin({  
+          jQuery: 'jquery',
+          $: 'jquery',
+          'window.jQuery': 'jquery',
+        }),
+
+    ]
+  }
+
+
+  /*{ src: "~/plugins/google-maps", ssr: true }*/
+ /*
+  build: {
     extend (config, ctx) {
     },
     transpile: [/^vue2-google-maps($|\/)/]
-  }
+  }*/
 
 }

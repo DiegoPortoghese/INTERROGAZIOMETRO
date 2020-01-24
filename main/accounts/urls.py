@@ -5,7 +5,8 @@ from . import views
 
 urlpatterns = [
         path('<int:pk>/', views.DetailProfileView.as_view()),
-
+        path('force/',views.CleateProfileView.as_view()),
+        
         path('preferenze/', views.ListProfilePreferenzeMateriaView.as_view()),
         path('preferenze/<int:pk>/', views.DetailProfilePreferenzeMateriaView.as_view()),
         

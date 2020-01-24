@@ -42,7 +42,12 @@ class DetailProfileView(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Profile.objects.all()
     serializer_class = serializers.ProfileUserDetailsSerializer
     permission_classes = [permissions.IsOwnerOrReadOnly,]
-    
+
+class CleateProfileView(generics.ListCreateAPIView):
+    queryset = models.Profile.objects.all()
+    serializer_class = serializers.ProfileUserDetailsSerializer
+    permission_classes = [permissions.IsOwnerOrReadOnly,]
+
 class ListProfilePreferenzeMateriaView(generics.ListCreateAPIView):
     queryset = models.ProfilePreferenzeMateria.objects.all()
     serializer_class = serializers.ProfilePreferenzeMateriaSerializer

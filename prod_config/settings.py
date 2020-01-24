@@ -24,7 +24,7 @@ SECRET_KEY = 'maiw$gh@bfcivow1w*)=8g*a#f^_vyb0)&kpd*se!z7qkhetp^'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CORS_ORIGIN_ALLOW_ALL = True
 
 SITE_ID = 1
 
@@ -187,7 +187,7 @@ REST_FRAMEWORK = {
     #)
 }
 
-FRONTEND_NAME = "interrogaziometro"
+FRONTEND_NAME = "Interrogaziometro"
 
 FRONTEND_DOMAIN = "interrogaziometro.it"
 

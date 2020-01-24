@@ -161,7 +161,7 @@ export default {
         this.$router.push(composePush)
       }
     }else{
-      this.$router.push('/account/registration')
+      this.$router.push('/account/login')
     }
     
     //this.asyncData()

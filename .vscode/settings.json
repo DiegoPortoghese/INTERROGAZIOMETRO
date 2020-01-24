@@ -1,0 +1,5 @@
+{
+    "remote.WSL.fileWatcher.polling": true,
+    "python.pythonPath": "/usr/bin/python3"
+
+}

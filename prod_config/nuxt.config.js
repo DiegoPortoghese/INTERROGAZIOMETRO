@@ -60,7 +60,7 @@ export default {
     'cookie-universal-nuxt',
   ],
   axios: {
-    baseURL: 'http://interrogaziometro.it:8000/',
+    baseURL: 'https://interrogaziometro.it:8000/',
   },
   auth: {
     redirect: {
